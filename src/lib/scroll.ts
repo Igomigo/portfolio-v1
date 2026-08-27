@@ -1,0 +1,27 @@
+import type Lenis from "lenis";
+
+let lenis: Lenis | null = null;
+
+export function setLenis(instance: Lenis | null) {
+  lenis = instance;
+}
+
+export function scrollToEl(selector: string) {
+  const el = document.querySelector<HTMLElement>(selector);
+  if (!el) return;
+  if (lenis) {
+    lenis.scrollTo(el, { duration: 1.8 });
+  } else {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+export function isInstantMode(): boolean {
+  if (typeof window === "undefined") return false;
+  return new URLSearchParams(window.location.search).has("instant");
+}
+
+export function prefersReducedMotion(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
