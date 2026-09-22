@@ -238,7 +238,7 @@ export default function Work() {
       <Reveal className="mb-7 flex flex-col items-start justify-between gap-[23px] md:mb-12 md:flex-row md:items-end md:gap-10">
         <div>
           <p className={`${eyebrow} mb-5 md:mb-6`}>
-            01 / SELECTED EXPLORATIONS
+            SELECTED WORK
           </p>
           <h2 id="work-title" className={sectionTitle}>
             Useful by design.

@@ -8,6 +8,7 @@ import AutomationDemo from "./AutomationDemo";
 import Approach from "./Approach";
 import About from "./About";
 import Contact from "./Contact";
+import Capabilities from "./Capabilities";
 
 export default function Portfolio() {
   const root = useRef<HTMLDivElement>(null);
@@ -47,10 +48,11 @@ export default function Portfolio() {
       <Header />
       <main id="main">
         <Hero />
+        <About />
         <Work />
         <AutomationDemo />
         <Approach />
-        <About />
+        <Capabilities />
         <Contact />
       </main>
     </div>

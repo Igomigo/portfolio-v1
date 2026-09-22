@@ -41,34 +41,32 @@ export default function Contact() {
           <p
             className={`${eyebrow} m-0 max-w-[190px] text-[7px] text-[#787e8e] md:max-w-none md:text-[9px]`}
           >
-            GOOD WORK STARTS WITH A CONVERSATION.
+            OPEN TO THE RIGHT ENGINEERING TEAM.
           </p>
           <Spark className="mr-2 size-[35px] text-[#2458ed] md:mr-[18px] md:size-[53px]" />
         </Reveal>
         <Reveal className="grid grid-cols-1 items-center gap-[38px] pb-[35px] pt-7 md:grid-cols-[1.4fr_1fr] md:gap-[70px] md:pb-[65px] md:pt-[45px]">
           <h2 className="text-[clamp(61px,14.4vw,100px)] font-medium leading-[1.05] tracking-[-.07em] md:text-[clamp(70px,8vw,115px)]">
-            Something
+            Building
             <br />
-            on your{" "}
+            something{" "}
             <span className="relative inline-block text-[#2458ed]">
-              mind?
+              ambitious?
               <Underline />
             </span>
           </h2>
           <div>
             <p className="mb-5 text-[13px] leading-[1.85] text-[#737a8b] md:mb-[26px] md:text-[15px]">
-              An idea to untangle.
-              <br />A product to bring to life.
-              <br />
-              I’d love to hear about it.
+              I’m interested in engineering roles where strong systems,
+              thoughtful products, AI, and attention to detail matter.
             </p>
             <a className={primaryButton} href={`mailto:${identity.email}`}>
-              Let’s make it happen <Arrow diagonal />
+              Start a conversation <Arrow diagonal />
             </a>
             <span
               className={`${handwriting} mt-[22px] block rotate-[-4deg] md:mt-[21px] md:text-[22px]`}
             >
-              my inbox is a good place to start.
+              good teams build remarkable things.
             </span>
           </div>
         </Reveal>

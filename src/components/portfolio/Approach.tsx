@@ -83,7 +83,7 @@ export default function Approach() {
     >
       <Reveal className="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end md:gap-10">
         <div>
-          <p className={`${eyebrow} mb-5 md:mb-6`}>03 / THE WAY I WORK</p>
+          <p className={`${eyebrow} mb-5 md:mb-6`}>HOW I WORK</p>
           <h2 id="approach-title" className={sectionTitle}>
             Care is a process.
           </h2>

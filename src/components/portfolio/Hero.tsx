@@ -32,21 +32,19 @@ export default function Hero() {
             id="hero-title"
             className="motion-enter m-0 mb-[30px] text-[clamp(52px,12vw,85px)] font-medium leading-[1.04] tracking-[-.07em] md:mb-[38px] md:text-[clamp(64px,7.45vw,108px)] md:leading-[1.01] md:tracking-[-.075em]"
           >
-            A little more
-            <br />
-            thought.
+            I build software
             <br />
             <span className="relative inline-block text-[#2458ed]">
-              A lot less
-              <br className="md:hidden" /> friction.
+              that works beautifully.
               <Underline />
             </span>
           </h1>
           <div className="motion-enter-delayed">
             <p className="mb-5 max-w-[310px] text-[13px] leading-[1.75] text-[#6e7077] md:mb-[27px] md:max-w-none md:text-[15px] md:leading-[1.8]">
-              I’m Fatai. I turn complex problems into
-              <br className="hidden md:block" /> software that feels
-              surprisingly simple.
+              I’m Fatai, a software engineer specializing in product
+              engineering, AI agents, and automation. I build scalable products
+              end to end from thoughtful interfaces to resilient backend
+              systems.
             </p>
             <a className={primaryButton} href="#work">
               Explore my work <Arrow className="size-[17px]" />
@@ -61,9 +59,9 @@ export default function Hero() {
           aria-label="An animated sketch transforming a tangled line into a clear path"
         >
           <span className="absolute -right-[27px] -top-[23px] z-[2] rotate-[8deg] font-[family-name:var(--font-hand)] text-2xl font-medium leading-none text-[#2458ed] md:-right-[18px] md:-top-[42px] md:text-[25px]">
-            a little order
+            built for people.
             <br />
-            in the chaos.
+            ready to scale.
           </span>
           <svg
             className="absolute -right-[26px] top-6 z-[3] h-[55px] w-[49px] text-[#2458ed] md:-right-5 md:top-1 md:h-[66px] md:w-[68px]"
@@ -81,9 +79,6 @@ export default function Hero() {
           <div className="absolute inset-x-4 bottom-[26px] top-4 rotate-[9deg] rounded-[3px] border border-[#e4e5e9] bg-[#f4f6fa] shadow-[2px_10px_30px_#222a4510] md:inset-x-[14px] md:bottom-[30px] md:top-8" />
           <div className="motion-paper absolute inset-x-4 bottom-[26px] top-4 rotate-[-7deg] rounded-[3px] border border-[#e4e5e9] bg-white p-4 shadow-[0_15px_30px_#222a4510] md:inset-x-[14px] md:bottom-[30px] md:top-8 md:p-[23px]">
             <div className="flex items-center justify-between text-[#888b94]">
-              <span className="font-mono text-[7px] leading-[1.6] tracking-[.09em] md:text-[10px]">
-                FIG. 01
-              </span>
               <span className="size-[7px] rounded-full border border-[#9b9ca3]" />
             </div>
             <svg
@@ -117,33 +112,27 @@ export default function Hero() {
             </svg>
             <div className="flex items-center justify-between text-[10px] leading-[1.5] md:text-xs">
               <span>
-                Complex in.
+                  Clear product.
                 <br />
                 <strong className="font-medium text-[#2458ed]">
-                  Simple out.
+                  Strong system.
                 </strong>
               </span>
               <span className="text-[22px] font-light">+</span>
             </div>
           </div>
-          <span className="absolute bottom-[-3px] left-6 font-mono text-[6px] tracking-[.14em] text-[#9b9da6] md:-bottom-3.5 md:left-[30px] md:text-[8px]">
-            THINK CLEARLY. BUILD CAREFULLY.
-          </span>
         </div>
       </div>
       <div className="flex items-center justify-between border-y border-[#e6e6e8] py-[17px] text-[8px] text-[#777981] md:py-[22px] md:text-[10px]">
         <span>
-          Software engineer{" "}
+          Product engineer{" "}
           <span className="mx-[7px] text-[#c3c3c8] md:mx-2.5">/</span> AI &
-          automation
+          intelligent systems
         </span>
         <a className="flex gap-0 md:gap-6" href="#work">
-          <span className="hidden md:inline">A few things I’m exploring</span>
+          <span className="hidden md:inline">Selected engineering work</span>
           <b className="text-[15px] font-normal text-[#202124]">↓</b>
         </a>
-        <span className="hidden font-mono text-[8px] tracking-[.1em] md:inline">
-          PORTFOLIO — 2026
-        </span>
       </div>
     </section>
   );
