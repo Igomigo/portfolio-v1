@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Arrow, Underline, pageWidth, primaryButton } from "./shared";
+import Button from "@/components/ui/Button";
+import { Arrow, Underline, pageWidth } from "./shared";
 
 export default function Hero() {
   const [shift, setShift] = useState(0);
@@ -41,14 +42,17 @@ export default function Hero() {
           </h1>
           <div className="motion-enter-delayed">
             <p className="mb-5 max-w-[310px] text-[13px] leading-[1.75] text-[#6e7077] md:mb-[27px] md:max-w-none md:text-[15px] md:leading-[1.8]">
-              I’m Fatai, a software engineer specializing in product
+              I’m Igomigo Fatai, a software engineer specializing in product
               engineering, AI agents, and automation. I build scalable products
               end to end from thoughtful interfaces to resilient backend
               systems.
             </p>
-            <a className={primaryButton} href="#work">
-              Explore my work <Arrow className="size-[17px]" />
-            </a>
+            <Button
+              href="#work"
+              icon={<Arrow className="size-[17px]" />}
+            >
+              Explore my work
+            </Button>
           </div>
         </div>
         <div
@@ -112,10 +116,10 @@ export default function Hero() {
             </svg>
             <div className="flex items-center justify-between text-[10px] leading-[1.5] md:text-xs">
               <span>
-                  Clear product.
+                From tangled ideas.
                 <br />
                 <strong className="font-medium text-[#2458ed]">
-                  Strong system.
+                  To clear systems.
                 </strong>
               </span>
               <span className="text-[22px] font-light">+</span>

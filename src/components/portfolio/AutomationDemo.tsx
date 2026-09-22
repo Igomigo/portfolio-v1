@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Button from "@/components/ui/Button";
 import {
   Arrow,
   Reveal,
   eyebrow,
   handwriting,
   pageWidth,
-  primaryButton,
   sectionTitle,
 } from "./shared";
 
@@ -50,9 +50,9 @@ export default function AutomationDemo() {
             A capable agent needs more than a prompt. It needs context, the
             right tools, clear execution, and a way to verify its own result.
           </p>
-          <button
-            className={`${primaryButton} border-[#2458ed] bg-[#2458ed] text-white hover:border-[#1744c7] hover:bg-[#1744c7] disabled:cursor-wait disabled:opacity-60`}
+          <Button
             disabled={running}
+            icon={<Arrow />}
             onClick={() => {
               setStep(0);
               setRunning(true);
@@ -63,8 +63,7 @@ export default function AutomationDemo() {
               : step === 4
                 ? "Run it again"
                 : "Run the agent"}
-            <Arrow />
-          </button>
+          </Button>
           <span
             className={`${handwriting} ml-[15px] inline-block rotate-[-8deg] text-[21px] md:ml-5 md:text-[23px]`}
           >

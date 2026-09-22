@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Button from "@/components/ui/Button";
 import { identity } from "@/lib/data";
 import {
   Arrow,
@@ -11,7 +12,6 @@ import {
   eyebrow,
   handwriting,
   pageWidth,
-  primaryButton,
 } from "./shared";
 
 export default function Contact() {
@@ -60,9 +60,12 @@ export default function Contact() {
               I’m interested in engineering roles where strong systems,
               thoughtful products, AI, and attention to detail matter.
             </p>
-            <a className={primaryButton} href={`mailto:${identity.email}`}>
-              Start a conversation <Arrow diagonal />
-            </a>
+            <Button
+              href={`mailto:${identity.email}`}
+              icon={<Arrow diagonal />}
+            >
+              Start a conversation
+            </Button>
             <span
               className={`${handwriting} mt-[22px] block rotate-[-4deg] md:mt-[21px] md:text-[22px]`}
             >

@@ -8,9 +8,6 @@ export const handwriting =
   "font-[family-name:var(--font-hand)] text-[23px] font-medium leading-[1.05] text-[#2458ed] md:text-[25px]";
 export const sectionTitle =
   "text-[clamp(30px,7.7vw,43px)] font-medium leading-[1.14] tracking-[-.052em] md:text-[clamp(34px,3.5vw,50px)] md:tracking-[-.055em]";
-export const primaryButton =
-  "inline-flex min-h-12 items-center justify-between gap-7 rounded-[5px] border border-[#202124] bg-[#202124] px-[17px] py-[13px] text-[11px] font-medium text-white transition duration-300 hover:-translate-y-0.5 hover:border-[#2458ed] hover:bg-[#2458ed] hover:shadow-[0_6px_20px_#2458ed18] md:min-h-[50px] md:gap-[34px] md:px-5 md:py-[15px] md:text-xs";
-
 export function Arrow({
   diagonal = false,
   className = "size-5",
