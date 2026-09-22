@@ -9,12 +9,12 @@ import {
 
 function Portrait() {
   return (
-    <div className="absolute right-0 top-10 z-20 h-[235px] w-[180px] rotate-[6deg] overflow-hidden rounded-[4px] border border-[#dfe3ee] bg-[#e9eefb] shadow-[0_16px_35px_rgba(36,88,237,.1)] transition-transform duration-700 ease-out group-hover:translate-x-1 group-hover:rotate-[7deg] md:top-[72px] md:h-[340px] md:w-[250px] md:group-hover:translate-x-2">
+    <div className="absolute right-[-22px] top-10 z-20 h-[235px] w-[212px] overflow-hidden rounded-[4px] border border-[#dfe3ee] bg-[#e9eefb] shadow-[0_16px_35px_rgba(36,88,237,.1)] transition-transform duration-700 ease-out group-hover:translate-x-1 md:right-[-40px] md:top-[72px] md:h-[325px] md:w-[290px] md:group-hover:translate-x-2">
       <Image
         src="/fatai.jpg"
         alt="Portrait of Igomigo Fatai"
         fill
-        sizes="(min-width: 768px) 250px, 180px"
+        sizes="(min-width: 768px) 290px, 212px"
         className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.035]"
       />
       <div
@@ -47,7 +47,7 @@ export default function About() {
             ENGINEER. BUILDER.
           </span>
         </div>
-        <Portrait />
+        <Portrait /> 
         <span
           className={`${handwriting} absolute bottom-2 right-2 z-20 rotate-[-4deg] text-[21px] md:bottom-0 md:right-0 md:text-[25px]`}
         >
