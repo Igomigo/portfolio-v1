@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { CINEMATIC_QUERY } from "@/lib/scroll";
 import { crossingWords } from "@/lib/data";
 import Drift from "./Drift";
 
@@ -22,109 +23,113 @@ export default function Crossing() {
 
   useGSAP(
     () => {
-      const words = gsap.utils.toArray<HTMLElement>(".crossing-word");
-      let dark = false;
+      const media = gsap.matchMedia();
+      media.add(CINEMATIC_QUERY, () => {
+        const words = gsap.utils.toArray<HTMLElement>(".crossing-word");
+        let dark = false;
 
-      const tl = gsap.timeline({
-        defaults: { ease: "none" },
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top top",
-          end: "+=430%",
-          pin: true,
-          scrub: true,
-          anticipatePin: 1,
-          onUpdate: (self) => {
-            progressRef.current = self.progress;
-            // chrome flips to light-on-dark once the sky has dimmed;
-            // only tween on the state change, never per tick
-            const nowDark = self.progress > 0.62;
-            if (nowDark !== dark) {
-              dark = nowDark;
-              gsap.to(document.documentElement, {
-                "--world-fg": dark ? "#f2ebdc" : "#181510",
-                "--world-bg": dark ? "#1d392f" : "#ebe2d0",
-                duration: 0.5,
-                overwrite: "auto",
-              });
-            }
+        const tl = gsap.timeline({
+          defaults: { ease: "none" },
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top top",
+            end: "+=430%",
+            pin: true,
+            scrub: true,
+            anticipatePin: 1,
+            onUpdate: (self) => {
+              progressRef.current = self.progress;
+              // chrome flips to light-on-dark once the sky has dimmed;
+              // only tween on the state change, never per tick
+              const nowDark = self.progress > 0.62;
+              if (nowDark !== dark) {
+                dark = nowDark;
+                gsap.to(document.documentElement, {
+                  "--world-fg": dark ? "#f2ebdc" : "#181510",
+                  "--world-bg": dark ? "#1d392f" : "#ebe2d0",
+                  duration: 0.5,
+                  overwrite: "auto",
+                });
+              }
+            },
+            onToggle: (self) => {
+              activeRef.current = self.isActive;
+            },
           },
-          onToggle: (self) => {
-            activeRef.current = self.isActive;
-          },
-        },
-      });
+        });
 
-      // rest state: the gate is a closed point of light — invisible, so the
-      // intro copy reads perfectly clean. Nothing sits on top of the words.
-      gsap.set(".crossing-gate", { clipPath: "circle(0% at 50% 56%)" });
-      gsap.set(".crossing-rim", { scale: 0.2, opacity: 0 });
+        // rest state: the gate is a closed point of light — invisible, so the
+        // intro copy reads perfectly clean. Nothing sits on top of the words.
+        gsap.set(".crossing-gate", { clipPath: "circle(0% at 50% 56%)" });
+        gsap.set(".crossing-rim", { scale: 0.2, opacity: 0 });
 
-      // 0 — the invitation lifts away, clearing the stage first
-      tl.to(".crossing-lead", { opacity: 0, y: -46, duration: 0.32, ease: "power1.in" }, 0.05);
+        // 0 — the invitation lifts away, clearing the stage first
+        tl.to(".crossing-lead", { opacity: 0, y: -46, duration: 0.32, ease: "power1.in" }, 0.05);
 
-      // 1 — only once the copy is gone, the gate blooms out of nothing
-      tl.to(
-        ".crossing-gate",
-        { clipPath: "circle(7% at 50% 56%)", duration: 0.28, ease: "power2.out" },
-        0.34
-      );
-      tl.to(
-        ".crossing-rim",
-        { scale: 1, opacity: 1, duration: 0.28, ease: "power2.out" },
-        0.34
-      );
-
-      // 2 — the gate swallows the viewport while its rim races outward
-      tl.to(
-        ".crossing-gate",
-        { clipPath: "circle(120% at 50% 50%)", duration: 2.15, ease: "power2.inOut" },
-        0.62
-      );
-      tl.to(
-        ".crossing-rim",
-        { scale: 17, opacity: 0, duration: 2.15, ease: "power2.inOut" },
-        0.62
-      );
-      tl.to(".crossing-sky", { scale: 1, duration: 2.15, ease: "power2.inOut" }, 0.62);
-
-      // 2 — the disciplines travel past, near to far
-      const wordStart = 2.5;
-      const wordGap = 1.15;
-      words.forEach((word, i) => {
-        const at = wordStart + i * wordGap;
-        tl.fromTo(
-          word,
-          { scale: 0.34, autoAlpha: 0, filter: "blur(7px)" },
-          { scale: 1, autoAlpha: 1, filter: "blur(0px)", duration: 0.75, ease: "power1.out" },
-          at
-        ).to(
-          word,
-          { scale: 5.6, autoAlpha: 0, filter: "blur(12px)", duration: 1.05, ease: "power2.in" },
-          at + 0.75
+        // 1 — only once the copy is gone, the gate blooms out of nothing
+        tl.to(
+          ".crossing-gate",
+          { clipPath: "circle(7% at 50% 56%)", duration: 0.28, ease: "power2.out" },
+          0.34
         );
+        tl.to(
+          ".crossing-rim",
+          { scale: 1, opacity: 1, duration: 0.28, ease: "power2.out" },
+          0.34
+        );
+
+        // 2 — the gate swallows the viewport while its rim races outward
+        tl.to(
+          ".crossing-gate",
+          { clipPath: "circle(120% at 50% 50%)", duration: 2.15, ease: "power2.inOut" },
+          0.62
+        );
+        tl.to(
+          ".crossing-rim",
+          { scale: 17, opacity: 0, duration: 2.15, ease: "power2.inOut" },
+          0.62
+        );
+        tl.to(".crossing-sky", { scale: 1, duration: 2.15, ease: "power2.inOut" }, 0.62);
+
+        // 2 — the disciplines travel past, near to far
+        const wordStart = 2.5;
+        const wordGap = 1.15;
+        words.forEach((word, i) => {
+          const at = wordStart + i * wordGap;
+          tl.fromTo(
+            word,
+            { scale: 0.34, autoAlpha: 0, filter: "blur(7px)" },
+            { scale: 1, autoAlpha: 1, filter: "blur(0px)", duration: 0.75, ease: "power1.out" },
+            at
+          ).to(
+            word,
+            { scale: 5.6, autoAlpha: 0, filter: "blur(12px)", duration: 1.05, ease: "power2.in" },
+            at + 0.75
+          );
+        });
+
+        // 3 — dusk falls: the sky dims into the moss world
+        const duskAt = wordStart + 1.9 * wordGap;
+        tl.to(".crossing-dusk", { opacity: 1, duration: 2.2, ease: "power1.inOut" }, duskAt);
+
+        // 4 — arrival
+        const arriveAt = wordStart + crossingWords.length * wordGap + 0.9;
+        tl.fromTo(
+          ".crossing-arrival",
+          { autoAlpha: 0, y: 70, scale: 0.94 },
+          { autoAlpha: 1, y: 0, scale: 1, duration: 1.1, ease: "power2.out" },
+          arriveAt
+        );
+        tl.fromTo(
+          ".crossing-arrival .label",
+          { letterSpacing: "0.6em" },
+          { letterSpacing: "0.18em", duration: 1.1, ease: "power2.out" },
+          arriveAt
+        );
+        // breathing room at the end of the pin
+        tl.to({}, { duration: 0.8 });
       });
-
-      // 3 — dusk falls: the sky dims into the moss world
-      const duskAt = wordStart + 1.9 * wordGap;
-      tl.to(".crossing-dusk", { opacity: 1, duration: 2.2, ease: "power1.inOut" }, duskAt);
-
-      // 4 — arrival
-      const arriveAt = wordStart + crossingWords.length * wordGap + 0.9;
-      tl.fromTo(
-        ".crossing-arrival",
-        { autoAlpha: 0, y: 70, scale: 0.94 },
-        { autoAlpha: 1, y: 0, scale: 1, duration: 1.1, ease: "power2.out" },
-        arriveAt
-      );
-      tl.fromTo(
-        ".crossing-arrival .label",
-        { letterSpacing: "0.6em" },
-        { letterSpacing: "0.18em", duration: 1.1, ease: "power2.out" },
-        arriveAt
-      );
-      // breathing room at the end of the pin
-      tl.to({}, { duration: 0.8 });
+      return () => media.revert();
     },
     { scope: root }
   );
@@ -136,8 +141,16 @@ export default function Crossing() {
       data-chapter-title="The Crossing"
       data-world-bg="#ebe2d0"
       data-world-fg="#181510"
-      className="relative h-svh overflow-hidden"
+      className="crossing-section relative h-svh overflow-hidden"
     >
+      <div className="crossing-mobile">
+        <p className="label text-bronze">Ch. III / The Crossing</p>
+        <div className="crossing-mobile-orbit" aria-hidden="true">
+          <span /><span /><i />
+          <p className="font-serif-display italic">From idea<br />to impact.</p>
+        </div>
+        <p className="label text-cream/65">Engineering · Intelligence<br />Automation · Motion</p>
+      </div>
       {/* lead-in, sitting in the sand world */}
       <div className="crossing-lead absolute inset-0 z-10 flex flex-col items-center justify-center gap-6 px-7 text-center">
         <p className="label text-bronze">

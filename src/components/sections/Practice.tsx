@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { CINEMATIC_QUERY } from "@/lib/scroll";
 import { capabilities } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -14,19 +15,23 @@ export default function Practice() {
 
   useGSAP(
     () => {
-      gsap.utils.toArray<HTMLElement>(".practice-row").forEach((row) => {
-        gsap.fromTo(
-          row,
-          { clipPath: "inset(0 0 100% 0)", y: 30 },
-          {
-            clipPath: "inset(0 0 -8% 0)",
-            y: 0,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: { trigger: row, start: "top 88%" },
-          }
-        );
+      const media = gsap.matchMedia();
+      media.add(CINEMATIC_QUERY, () => {
+        gsap.utils.toArray<HTMLElement>(".practice-row").forEach((row) => {
+          gsap.fromTo(
+            row,
+            { clipPath: "inset(0 0 100% 0)", y: 30 },
+            {
+              clipPath: "inset(0 0 -8% 0)",
+              y: 0,
+              duration: 1,
+              ease: "power3.out",
+              scrollTrigger: { trigger: row, start: "top 88%" },
+            }
+          );
+        });
       });
+      return () => media.revert();
     },
     { scope: root }
   );

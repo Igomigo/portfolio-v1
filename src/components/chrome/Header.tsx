@@ -10,7 +10,7 @@ const LINKS = [
 
 export default function Header() {
   return (
-    <header className="fixed inset-x-0 top-0 z-[60] flex items-center justify-between px-5 py-5 sm:px-7 sm:py-6">
+    <header className="site-header fixed inset-x-0 top-0 z-[60] flex items-center justify-between px-5 py-5 sm:px-7 sm:py-6">
       <button
         onClick={() => scrollToEl("#origin")}
         className="font-serif-display text-[17px] italic"
@@ -19,7 +19,7 @@ export default function Header() {
       >
         Fatai Igomigo
       </button>
-      <nav className="flex items-center gap-4 sm:gap-7">
+      <nav aria-label="Main navigation" className="flex items-center gap-4 sm:gap-7">
         <span
           className="label hidden items-center gap-2 opacity-60 md:flex"
           style={{ color: "var(--world-fg)" }}

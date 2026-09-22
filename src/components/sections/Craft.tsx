@@ -4,6 +4,7 @@ import { useMemo, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { CINEMATIC_QUERY } from "@/lib/scroll";
 import { craftStatement, facts } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -28,34 +29,38 @@ export default function Craft() {
 
   useGSAP(
     () => {
-      gsap.fromTo(
-        ".craft-word",
-        { opacity: 0.13 },
-        {
-          opacity: 1,
-          stagger: 0.03,
-          ease: "none",
-          scrollTrigger: {
-            trigger: ".craft-statement",
-            start: "top 78%",
-            end: "bottom 42%",
-            scrub: true,
-          },
-        }
-      );
+      const media = gsap.matchMedia();
+      media.add(CINEMATIC_QUERY, () => {
+        gsap.fromTo(
+          ".craft-word",
+          { opacity: 0.13 },
+          {
+            opacity: 1,
+            stagger: 0.03,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".craft-statement",
+              start: "top 78%",
+              end: "bottom 42%",
+              scrub: true,
+            },
+          }
+        );
 
-      gsap.fromTo(
-        ".craft-fact",
-        { opacity: 0, y: 34 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.9,
-          ease: "power3.out",
-          stagger: 0.09,
-          scrollTrigger: { trigger: ".craft-facts", start: "top 85%" },
-        }
-      );
+        gsap.fromTo(
+          ".craft-fact",
+          { opacity: 0, y: 34 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.9,
+            ease: "power3.out",
+            stagger: 0.09,
+            scrollTrigger: { trigger: ".craft-facts", start: "top 85%" },
+          }
+        );
+      });
+      return () => media.revert();
     },
     { scope: root }
   );

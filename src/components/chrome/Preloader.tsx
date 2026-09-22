@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { isInstantMode, prefersReducedMotion } from "@/lib/scroll";
+import { isInstantMode, CINEMATIC_QUERY } from "@/lib/scroll";
 import { beginJourney } from "@/lib/journey";
 
 gsap.registerPlugin(useGSAP);
@@ -25,7 +25,7 @@ export default function Preloader() {
         setGone(true);
       };
 
-      if (prefersReducedMotion() || isInstantMode()) {
+      if (!window.matchMedia(CINEMATIC_QUERY).matches || isInstantMode()) {
         finish();
         return;
       }
@@ -56,6 +56,7 @@ export default function Preloader() {
       tl.to(".pre-fade", { opacity: 0, duration: 0.35, ease: "power1.out" }, wordsEnd + 0.4);
       tl.to(".pre-panel-t", { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, wordsEnd + 0.65);
       tl.to(".pre-panel-b", { yPercent: 100, duration: 0.9, ease: "power4.inOut" }, wordsEnd + 0.65);
+      return () => document.documentElement.classList.remove("no-scroll");
     },
     { scope: root }
   );

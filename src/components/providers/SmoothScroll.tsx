@@ -4,7 +4,7 @@ import { useEffect, type ReactNode } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import { setLenis, isInstantMode, prefersReducedMotion } from "@/lib/scroll";
+import { setLenis, isInstantMode, CINEMATIC_QUERY } from "@/lib/scroll";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,25 +23,28 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
       gsap.globalTimeline.timeScale(30);
       return;
     }
-    if (prefersReducedMotion()) return;
+    const media = gsap.matchMedia();
+    media.add(CINEMATIC_QUERY, () => {
 
-    const lenis = new Lenis({ lerp: 0.09 });
-    setLenis(lenis);
-    lenis.on("scroll", ScrollTrigger.update);
+      const lenis = new Lenis({ lerp: 0.09 });
+      setLenis(lenis);
+      lenis.on("scroll", ScrollTrigger.update);
 
-    const raf = (time: number) => lenis.raf(time * 1000);
-    gsap.ticker.add(raf);
-    gsap.ticker.lagSmoothing(0);
+      const raf = (time: number) => lenis.raf(time * 1000);
+      gsap.ticker.add(raf);
+      gsap.ticker.lagSmoothing(0);
 
-    const onLoad = () => ScrollTrigger.refresh();
-    window.addEventListener("load", onLoad);
+      const onLoad = () => ScrollTrigger.refresh();
+      window.addEventListener("load", onLoad);
 
-    return () => {
-      window.removeEventListener("load", onLoad);
-      gsap.ticker.remove(raf);
-      lenis.destroy();
-      setLenis(null);
-    };
+      return () => {
+        window.removeEventListener("load", onLoad);
+        gsap.ticker.remove(raf);
+        lenis.destroy();
+        setLenis(null);
+      };
+    });
+    return () => media.revert();
   }, []);
 
   return <>{children}</>;

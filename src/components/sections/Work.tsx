@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { CINEMATIC_QUERY } from "@/lib/scroll";
 import { projects } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -18,50 +19,54 @@ export default function Work() {
 
   useGSAP(
     () => {
-      const distance = () => (track.current?.scrollWidth ?? 0) - window.innerWidth;
+      const media = gsap.matchMedia();
+      media.add(CINEMATIC_QUERY, () => {
+        const distance = () => (track.current?.scrollWidth ?? 0) - window.innerWidth;
 
-      const move = gsap.to(track.current, {
-        x: () => -distance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top top",
-          end: () => `+=${distance()}`,
-          pin: true,
-          scrub: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
+        const move = gsap.to(track.current, {
+          x: () => -distance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top top",
+            end: () => `+=${distance()}`,
+            pin: true,
+            scrub: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
+          },
+        });
 
-      gsap.utils.toArray<HTMLElement>(".work-visual-inner").forEach((visual) => {
-        gsap.fromTo(
-          visual,
-          { xPercent: -7 },
-          {
-            xPercent: 7,
-            ease: "none",
-            scrollTrigger: {
-              trigger: visual,
-              containerAnimation: move,
-              start: "left right",
-              end: "right left",
-              scrub: true,
-            },
-          }
-        );
-      });
+        gsap.utils.toArray<HTMLElement>(".work-visual-inner").forEach((visual) => {
+          gsap.fromTo(
+            visual,
+            { xPercent: -7 },
+            {
+              xPercent: 7,
+              ease: "none",
+              scrollTrigger: {
+                trigger: visual,
+                containerAnimation: move,
+                start: "left right",
+                end: "right left",
+                scrub: true,
+              },
+            }
+          );
+        });
 
-      gsap.to(".work-progress", {
-        scaleX: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: root.current,
-          start: "top top",
-          end: () => `+=${distance()}`,
-          scrub: true,
-        },
+        gsap.to(".work-progress", {
+          scaleX: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: root.current,
+            start: "top top",
+            end: () => `+=${distance()}`,
+            scrub: true,
+          },
+        });
       });
+      return () => media.revert();
     },
     { scope: root }
   );
@@ -74,11 +79,11 @@ export default function Work() {
       data-chapter-title="The Work"
       data-world-bg="#1d392f"
       data-world-fg="#f2ebdc"
-      className="relative h-svh overflow-hidden bg-moss text-cream"
+      className="work-section relative h-svh overflow-hidden bg-moss text-cream"
     >
-      <div ref={track} className="flex h-full items-center gap-[6vw] pl-7 pr-[8vw]">
+      <div ref={track} className="work-track flex h-full items-center gap-[6vw] pl-7 pr-[8vw]">
         {/* voyage intro */}
-        <header className="w-[34vw] min-w-[300px] shrink-0">
+        <header className="work-intro w-[34vw] min-w-[300px] shrink-0">
           <p className="label mb-6 text-bronze">
             Ch. IV <span className="text-cream/40">/</span> The Work
           </p>
@@ -88,18 +93,18 @@ export default function Work() {
             <span className="italic">carried home.</span>
           </h2>
           <p className="mt-6 max-w-[280px] text-[14px] leading-relaxed text-cream/55">
-            Dummy artifacts for now, each will become a case study. Scroll on;
-            the world moves sideways here.
+            Placeholder projects, soon to become full case studies.
+            <span className="cinematic-only"> Scroll on; the world moves sideways here.</span>
           </p>
         </header>
 
         {projects.map((p) => (
           <article
             key={p.title}
-            className="group w-[80vw] shrink-0 sm:w-[min(58vw,780px)]"
+            className="work-card group w-[80vw] shrink-0 sm:w-[min(58vw,780px)]"
             data-cursor-label="View"
           >
-            <div className="relative aspect-[16/10] overflow-hidden rounded-lg border border-cream/12">
+            <div className="work-visual relative aspect-[16/10] overflow-hidden rounded-lg border border-cream/12">
               <div className="work-visual-inner absolute -inset-x-[10%] inset-y-0">
                 <div
                   className="absolute inset-0"
@@ -135,14 +140,14 @@ export default function Work() {
         ))}
 
         {/* voyage outro */}
-        <div className="flex w-[30vw] min-w-[240px] shrink-0 items-center">
+        <div className="work-outro flex w-[30vw] min-w-[240px] shrink-0 items-center">
           <p className="font-serif-display text-[clamp(1.6rem,2.8vw,2.6rem)] italic text-cream/70">
             The journey continues…
           </p>
         </div>
       </div>
 
-      <div className="absolute inset-x-7 bottom-8 flex items-center gap-4">
+      <div className="work-voyage absolute inset-x-7 bottom-8 flex items-center gap-4">
         <span className="label text-cream/50">Voyage</span>
         <span className="relative h-px flex-1 overflow-hidden bg-cream/15">
           <span className="work-progress absolute inset-0 origin-left scale-x-0 bg-bronze" />

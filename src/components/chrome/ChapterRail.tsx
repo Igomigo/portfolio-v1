@@ -1,11 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+import { useEffect, useState } from "react";
 
 interface ChapterState {
   numeral: string;
@@ -20,28 +15,48 @@ export default function ChapterRail() {
   });
   const [progress, setProgress] = useState(0);
 
-  useGSAP(() => {
-    document.querySelectorAll<HTMLElement>("[data-chapter]").forEach((el) => {
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 55%",
-        end: "bottom 55%",
-        onToggle: (self) => {
-          if (!self.isActive) return;
-          setChapter({
-            numeral: el.dataset.chapter ?? "",
-            title: el.dataset.chapterTitle ?? "",
-          });
-        },
-      });
-    });
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("[data-chapter]"));
+    const updateChapter = () => {
+      // Read the current layout: pin spacers change chapter positions and
+      // lengths after mount and whenever the responsive layout changes.
+      let current = sections[0];
+      for (const section of sections) {
+        const boundary = section.parentElement?.classList.contains("pin-spacer")
+          ? section.parentElement
+          : section;
+        if (boundary.getBoundingClientRect().top <= window.innerHeight * 0.55) {
+          current = section;
+        }
+      }
+      if (!current) return;
+      const numeral = current.dataset.chapter ?? "";
+      const title = current.dataset.chapterTitle ?? "";
+      setChapter((previous) => previous.numeral === numeral ? previous : { numeral, title });
+    };
 
-    ScrollTrigger.create({
-      start: 0,
-      end: () => ScrollTrigger.maxScroll(window),
-      onUpdate: (self) => setProgress(self.progress),
-    });
-  });
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
+      updateChapter();
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    const resize = new ResizeObserver(schedule);
+    resize.observe(document.body);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      resize.disconnect();
+    };
+  }, []);
 
   return (
     <aside

@@ -4,6 +4,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { CINEMATIC_QUERY } from "@/lib/scroll";
 import { identity } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -17,39 +18,43 @@ export default function Invitation() {
 
   useGSAP(
     () => {
-      gsap.fromTo(
-        ".invite-rise",
-        { opacity: 0, y: 60 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1.1,
-          ease: "power3.out",
-          stagger: 0.1,
-          scrollTrigger: { trigger: root.current, start: "top 62%" },
-        }
-      );
+      const media = gsap.matchMedia();
+      media.add(CINEMATIC_QUERY, () => {
+        gsap.fromTo(
+          ".invite-rise",
+          { opacity: 0, y: 60 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.1,
+            ease: "power3.out",
+            stagger: 0.1,
+            scrollTrigger: { trigger: root.current, start: "top 62%" },
+          }
+        );
 
-      // magnetic email button
-      const el = magnet.current;
-      if (!el || window.matchMedia("(pointer: coarse)").matches) return;
-      const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3.out" });
-      const yTo = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3.out" });
-      const onMove = (e: MouseEvent) => {
-        const r = el.getBoundingClientRect();
-        const dx = e.clientX - (r.left + r.width / 2);
-        const dy = e.clientY - (r.top + r.height / 2);
-        const dist = Math.hypot(dx, dy);
-        if (dist < 160) {
-          xTo(dx * 0.28);
-          yTo(dy * 0.28);
-        } else {
-          xTo(0);
-          yTo(0);
-        }
-      };
-      window.addEventListener("mousemove", onMove);
-      return () => window.removeEventListener("mousemove", onMove);
+        // magnetic email button
+        const el = magnet.current;
+        if (!el || window.matchMedia("(pointer: coarse)").matches) return;
+        const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3.out" });
+        const yTo = gsap.quickTo(el, "y", { duration: 0.4, ease: "power3.out" });
+        const onMove = (e: MouseEvent) => {
+          const r = el.getBoundingClientRect();
+          const dx = e.clientX - (r.left + r.width / 2);
+          const dy = e.clientY - (r.top + r.height / 2);
+          const dist = Math.hypot(dx, dy);
+          if (dist < 160) {
+            xTo(dx * 0.28);
+            yTo(dy * 0.28);
+          } else {
+            xTo(0);
+            yTo(0);
+          }
+        };
+        window.addEventListener("mousemove", onMove);
+        return () => window.removeEventListener("mousemove", onMove);
+      });
+      return () => media.revert();
     },
     { scope: root }
   );
