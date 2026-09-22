@@ -62,6 +62,7 @@ export default function Hero() {
           }}
           aria-label="An animated sketch transforming a tangled line into a clear path"
         >
+          <div className="group relative size-full transition-transform duration-700 ease-out hover:-translate-y-1 hover:scale-[1.015]">
           <span className="absolute -right-[27px] -top-[23px] z-[2] rotate-[8deg] font-[family-name:var(--font-hand)] text-2xl font-medium leading-none text-[#2458ed] md:-right-[18px] md:-top-[42px] md:text-[25px]">
             built for people.
             <br />
@@ -124,6 +125,7 @@ export default function Hero() {
               </span>
               <span className="text-[22px] font-light">+</span>
             </div>
+          </div>
           </div>
         </div>
       </div>
