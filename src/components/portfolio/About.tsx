@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   Reveal,
   Spark,
@@ -6,30 +7,20 @@ import {
   pageWidth,
 } from "./shared";
 
-function PortraitPlaceholder() {
+function Portrait() {
   return (
     <div className="absolute right-0 top-10 h-[220px] w-[170px] rotate-[6deg] overflow-hidden rounded-[4px] border border-[#dfe3ee] bg-[#e9eefb] shadow-[0_16px_35px_rgba(36,88,237,.1)] md:top-[72px] md:h-[320px] md:w-[235px]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,#fff_0_8%,transparent_9%),radial-gradient(ellipse_at_50%_48%,#bbc8ed_0_21%,transparent_22%),linear-gradient(145deg,#f7f9ff,#dce5fb)]" />
-      <svg
-        className="absolute inset-0 size-full text-[#2458ed]/25"
-        viewBox="0 0 200 275"
-        fill="none"
+      <Image
+        src="/fatai.jpg"
+        alt="Portrait of Igomigo Fatai"
+        fill
+        sizes="(min-width: 768px) 235px, 170px"
+        className="object-cover object-center"
+      />
+      <div
+        className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/35"
         aria-hidden="true"
-      >
-        <path
-          d="M15 222C44 167 61 158 97 160s65 26 88 72M59 113c6 32 26 48 43 47 22-2 39-28 40-57 1-36-18-61-43-61-26 0-47 28-40 71Z"
-          stroke="currentColor"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M20 32h34M146 242h35M164 225v34"
-          stroke="currentColor"
-          strokeWidth="1"
-        />
-      </svg>
-      <span className="absolute bottom-4 left-4 font-mono text-[7px] tracking-[.13em] text-[#6d7ca8]">
-        PORTRAIT / FI
-      </span>
+      />
     </div>
   );
 }
@@ -56,7 +47,7 @@ export default function About() {
             ENGINEER. BUILDER.
           </span>
         </div>
-        <PortraitPlaceholder />
+        <Portrait />
         <span
           className={`${handwriting} absolute bottom-2 right-2 z-20 rotate-[-4deg] text-[21px] md:bottom-0 md:right-0 md:text-[25px]`}
         >
