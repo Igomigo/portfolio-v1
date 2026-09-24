@@ -67,7 +67,8 @@ export default function AutomationDemo() {
           <span
             className={`${handwriting} ml-[15px] inline-block rotate-[-8deg] text-[21px] md:ml-5 md:text-[23px]`}
           >
-            watch the system think ↗
+            watch the system think{" "}
+            <Arrow diagonal className="ml-1 inline-block size-[.85em] align-[-.08em]" />
           </span>
         </Reveal>
         <Reveal className="rounded-[9px] border border-[#e1e4eb] bg-white p-[19px] shadow-[0_16px_35px_#27304906] md:p-[26px]">

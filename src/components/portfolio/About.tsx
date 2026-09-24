@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {
+  Arrow,
   Reveal,
   Spark,
   eyebrow,
@@ -51,7 +52,8 @@ export default function About() {
         <span
           className={`${handwriting} absolute bottom-2 right-2 z-20 rotate-[-4deg] text-[21px] md:bottom-0 md:right-0 md:text-[25px]`}
         >
-          the human behind the systems ↗
+          the human behind the systems{" "}
+          <Arrow diagonal className="ml-1 inline-block size-[.85em] align-[-.08em]" />
         </span>
       </Reveal>
       <Reveal className="self-center">

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { identity } from "@/lib/data";
 import {
@@ -85,7 +84,14 @@ export default function Contact() {
             onClick={copyEmail}
             aria-label="Copy email address"
           >
-            {copied ? "Copied ✓" : "Copy email ↗"}
+            {copied ? (
+              "Copied ✓"
+            ) : (
+              <>
+                Copy email
+                <Arrow diagonal className="ml-1 inline-block size-[11px] align-[-1px]" />
+              </>
+            )}
           </button>
           <span
             className="absolute bottom-3 text-[9px] text-[#2458ed] md:bottom-5 md:text-[10px]"
@@ -107,18 +113,25 @@ export default function Contact() {
           </a>
           <span>© 2026 Fatai Igomigo</span>
           <span className="hidden md:inline">Made with intention.</span>
-          <Link
-            className="ml-auto flex min-h-11 items-center gap-1 md:gap-2"
-            href="/archive/original"
-          >
-            View original <Arrow diagonal className="size-3" />
-          </Link>
           <a
-            className="hidden p-3 text-[17px] text-[#202124] md:block"
+            className="ml-auto grid size-11 place-items-center text-[#202124] transition-colors hover:text-[#2458ed]"
             href="#top"
             aria-label="Back to top"
           >
-            ↑
+            <svg
+              className="size-[18px]"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 20V4m-6 6 6-6 6 6"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
           </a>
         </footer>
       </div>
