@@ -106,95 +106,35 @@ function TailrMockup() {
   );
 }
 
-function HaloMockup() {
+function PickyMockup() {
   return (
     <div
-      className={`${scene} bg-[#eaf0fc] bg-[radial-gradient(ellipse_at_55%_20%,#f9fbff,transparent_70%)]`}
+      className={`${scene} bg-[#eeebfa] bg-[radial-gradient(ellipse_at_50%_25%,#fffdfb_0%,#f2efff_58%,#e6e1fb_100%)] md:h-[600px]`}
     >
-      <span className="absolute left-[18px] top-[18px] font-mono text-[7px] tracking-[.09em] text-[#76849c] md:left-7 md:top-[26px] md:text-[9px]">
-        02 — INTELLIGENT SYSTEMS
+      <span className="absolute left-[18px] top-[18px] font-mono text-[7px] tracking-[.09em] text-[#77709f] md:left-7 md:top-[26px] md:text-[9px]">
+        02 — AI SHOPPING ASSISTANT
       </span>
-      <div className="w-[90%] rotate-[-3deg] rounded-md border border-[#dce2ee] bg-white shadow-[0_30px_65px_#3f598b20] transition duration-700 hover:rotate-0 md:w-[78%] md:max-w-[850px] md:[transform:perspective(1200px)_rotateY(-5deg)_rotateX(3deg)_rotateZ(-2deg)] md:hover:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)]">
-        <div className="flex items-center gap-1.5 border-b border-[#eceef4] px-3 py-2.5 text-sm md:gap-2 md:px-[22px] md:py-4 md:text-lg">
-          <span className="text-[19px] text-[#2458ed] md:text-[25px]">✳</span>
-          <strong>halo</strong>
-          <span className="ml-[18px] hidden text-[6px] tracking-[.12em] text-[#8a8d99] md:inline">
-            YOUR SUPPORT, CONNECTED.
-          </span>
-          <span className="ml-auto text-xs tracking-[.1em] text-[#a0a4ae]">
-            •••
-          </span>
-        </div>
-        <div className="grid min-h-0 grid-cols-[36px_1fr] md:min-h-[270px] md:grid-cols-[155px_1fr]">
-          <div className="relative border-r border-[#eceef4] px-[5px] py-3 text-xs text-[#8a8c98] md:px-3 md:py-[22px] md:text-[10px]">
-            <span className="mb-[9px] flex items-center gap-2 rounded bg-[#edf2ff] p-[5px] text-[#2458ed] md:mb-[5px] md:p-2.5">
-              ▤ <i className="hidden not-italic md:inline">Inbox</i>
-              <b className="ml-auto hidden text-[8px] font-normal md:inline">
-                8
-              </b>
-            </span>
-            <span className="mb-[9px] flex p-[5px] md:mb-[5px] md:p-2.5">
-              ◷ <i className="hidden not-italic md:inline">Activity</i>
-            </span>
-            <span className="flex p-[5px] md:p-2.5">
-              ◈ <i className="hidden not-italic md:inline">Knowledge</i>
-            </span>
-            <div className="absolute bottom-5 left-5 hidden items-center gap-1.5 text-[7px] md:flex">
-              <i className="size-1 rounded-full bg-[#3d9b68]" /> All systems
-              ready
-            </div>
-          </div>
-          <div className="p-3 text-[8px] md:px-7 md:py-[23px] md:text-[10px]">
-            <div className="flex items-center gap-1.5 md:gap-[9px]">
-              <span className="grid size-[23px] place-items-center rounded-full bg-[#f0eff5] text-[7px] text-[#737786] md:size-[30px] md:text-[9px]">
-                JD
-              </span>
-              <span>
-                <strong className="block text-[8px] font-medium md:text-[10px]">
-                  Jamie Davis
-                </strong>
-                <small className="mt-[3px] block text-[6px] text-[#9597a1] md:text-[7px]">
-                  Order enquiry · just now
-                </small>
-              </span>
-              <span className="ml-auto rounded bg-[#edf8f3] px-[5px] py-[3px] text-[6px] text-[#439777] md:px-2 md:py-1 md:text-[7px]">
-                Resolved
-              </span>
-            </div>
-            <p className="my-3 inline-block rounded-r-md rounded-bl-md bg-[#f5f5f7] px-2 py-[7px] md:mb-3 md:mt-5 md:px-[13px] md:py-2.5">
-              Hey! Could you help me find my order?
-            </p>
-            <div className="rounded-md border border-[#e1e8fb] bg-[#f0f4ff] p-[9px] md:p-3.5">
-              <span className="font-mono text-[6px] text-[#2458ed]">
-                ✳ HALO ASSISTANT
-              </span>
-              <p className="my-[5px] leading-[1.6] md:mb-3 md:mt-2">
-                Of course. Your order is on its way and arrives tomorrow.
-              </p>
-              <div className="flex items-center gap-1.5 rounded border border-[#e6ebf7] bg-white p-[7px] md:gap-2.5 md:p-2.5">
-                <span className="text-sm text-[#2458ed] md:text-xl">↗</span>
-                <span>
-                  <strong className="block text-[8px] font-medium md:text-[10px]">
-                    Order #1042
-                  </strong>
-                  <small className="block text-[6px] text-[#9597a1] md:text-[7px]">
-                    In transit · arriving tomorrow
-                  </small>
-                </span>
-                <span className="ml-auto text-[#439777]">✓</span>
-              </div>
-            </div>
-            <div className="mt-2.5 flex items-center gap-1 text-[5px] text-[#9597a1] md:mt-4 md:gap-[7px] md:text-[7px]">
-              <i className="size-1 rounded-full bg-[#3d9b68]" /> Answer grounded
-              in your knowledge base.
-            </div>
-          </div>
-        </div>
-      </div>
-      <span
-        className={`${handwriting} absolute bottom-[15px] right-[17px] rotate-[-5deg] text-[21px] md:bottom-[22px] md:right-9 md:text-[25px]`}
+
+      <a
+        href="/picky.png"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the full-size screenshot of Picky's shopping comparison"
+        className="relative mt-5 block w-[90%] rotate-[-3deg] overflow-hidden rounded-[9px] border border-white/80 bg-white shadow-[0_30px_65px_#3d2b7d26] transition duration-700 hover:rotate-0 focus-visible:rotate-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4f46e5] md:mt-6 md:w-[76%] md:max-w-[760px] md:rounded-[13px] md:[transform:perspective(1200px)_rotateY(-5deg)_rotateX(3deg)_rotateZ(-2deg)] md:hover:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)] md:focus-visible:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)]"
       >
-        helpful. not just automated.
+        <Image
+          src="/picky.png"
+          alt="Picky comparing phone listings from an online marketplace"
+          width={3456}
+          height={2234}
+          sizes="(min-width: 1280px) 760px, (min-width: 768px) 76vw, 90vw"
+          quality={90}
+          className="block h-auto w-full"
+        />
+      </a>
+
+      <span className="absolute bottom-[12px] right-[18px] rotate-[-4deg] font-[family-name:var(--font-hand)] text-[20px] text-[#4f46e5] md:bottom-[20px] md:right-8 md:text-[25px]">
+        the right pick, without the guesswork.
       </span>
     </div>
   );
@@ -334,29 +274,30 @@ export default function Work() {
       </Reveal>
       <Reveal className="mt-10 md:mt-[72px]">
         <article>
-          <HaloMockup />
+          <PickyMockup />
           <ProjectInfo
-            name="Halo"
+            name="Picky"
             index="02"
-            description="A calmer way to keep the conversation going."
-            tags={["AI agents", "Product design"]}
+            description="An AI shopping assistant that finds the one worth buying."
+            tags={["AI product", "Shopping", "Full-stack"]}
           />
-          <ProjectDetails>
+          <ProjectDetails label="Inside the product">
             <p>
-              An exploration of support software that keeps context close: the
-              customer’s question, a grounded answer, and the next useful action
-              in one place.
+              Tell Picky what you’re looking for and it gathers live listings
+              in one place. It compares price, condition, and seller feedback,
+              then recommends the strongest option with a clear reason and an
+              alternative worth considering.
             </p>
             <p>
               <strong className="block font-medium text-[#202124]">
-                The engineering question
+                What I built
               </strong>
-              How do you connect retrieval, order data, and human handoff
-              without making the interface feel complicated?
+              I built the search-to-recommendation flow: collecting product
+              listings and seller reviews from Jiji, showing the options as
+              they come in, comparing them with AI, and turning the analysis
+              into a reasoned pick and a backup choice.
             </p>
-            <span className={commonDetails}>
-              DESIGN STUDY · NOT A SHIPPED CLIENT PROJECT
-            </span>
+            <span className={commonDetails}>AI SHOPPING ASSISTANT</span>
           </ProjectDetails>
         </article>
       </Reveal>
