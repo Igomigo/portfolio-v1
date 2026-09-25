@@ -4,6 +4,7 @@ type ButtonProps = {
   children: ReactNode;
   icon?: ReactNode;
   href?: string;
+  target?: "_blank";
   className?: string;
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -17,6 +18,7 @@ export default function Button({
   children,
   icon,
   href,
+  target,
   className = "",
   disabled,
   onClick,
@@ -31,7 +33,12 @@ export default function Button({
 
   if (href) {
     return (
-      <a className={`${styles} ${className}`} href={href}>
+      <a
+        className={`${styles} ${className}`}
+        href={href}
+        target={target}
+        rel={target === "_blank" ? "noopener noreferrer" : undefined}
+      >
         {content}
       </a>
     );

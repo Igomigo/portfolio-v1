@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   Reveal,
@@ -81,11 +82,9 @@ function TailrMockup() {
         01 — AI RESUME BUILDER
       </span>
 
-      <a
-        href="/tailr-app.png"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open the full-size screenshot of Tailr's resume builder"
+      <Link
+        href="/projects/tailr"
+        aria-label="Explore the Tailr project"
         className="relative mt-5 block w-[90%] rotate-[-3deg] overflow-hidden rounded-[9px] border border-white/15 bg-black shadow-[0_30px_65px_#34251938] transition duration-700 hover:rotate-0 focus-visible:rotate-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a57228] md:mt-6 md:w-[76%] md:max-w-[760px] md:rounded-[13px] md:[transform:perspective(1200px)_rotateY(-5deg)_rotateX(3deg)_rotateZ(-2deg)] md:hover:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)] md:focus-visible:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)]"
       >
         <Image
@@ -97,7 +96,7 @@ function TailrMockup() {
           quality={90}
           className="block h-auto w-full"
         />
-      </a>
+      </Link>
 
       <span className="absolute bottom-[12px] right-[18px] rotate-[-4deg] font-[family-name:var(--font-hand)] text-[20px] text-[#a57228] md:bottom-[20px] md:right-8 md:text-[25px]">
         your experience, tailored.
