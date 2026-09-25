@@ -140,70 +140,35 @@ function PickyMockup() {
   );
 }
 
-function RelayMockup() {
-  const items = [
-    ["↙", "A new idea", "Capture the request"],
-    ["✳", "A little intelligence", "Find the next step"],
-    ["✓", "One less task", "Make it happen"],
-  ];
+function YachtCrewCenterMockup() {
   return (
     <div
-      className={`${scene} bg-[#f4f1ea] [background-image:radial-gradient(#dbd6cc_1px,transparent_1px)] [background-size:16px_16px]`}
+      className={`${scene} bg-[#e6f3f7] bg-[radial-gradient(ellipse_at_50%_30%,#f9fcff_0%,#e6f3f7_65%,#d3e9f1_100%)] md:h-[600px]`}
     >
-      <span className="absolute left-[18px] top-[18px] font-mono text-[7px] tracking-[.09em] text-[#999181] md:left-7 md:top-[26px] md:text-[9px]">
-        03 — THOUGHTFUL AUTOMATION
+      <span className="absolute left-[18px] top-[18px] font-mono text-[7px] tracking-[.09em] text-[#5c8192] md:left-7 md:top-[26px] md:text-[9px]">
+        03 — YACHT OPERATIONS
       </span>
-      <div className="w-[91%] rotate-[1.5deg] rounded-lg border border-[#e5e0d7] bg-[#fffefa] px-3 py-5 shadow-[0_20px_45px_#746b5510] transition duration-700 hover:rotate-0 md:w-[82%] md:p-[34px]">
-        <div className="flex items-center gap-[11px] text-[17px] leading-[1.15] tracking-[-.05em] md:gap-[17px] md:text-xl">
-          <span className="grid size-[34px] place-items-center rounded-[7px] bg-[#fa633b] text-[21px] font-semibold text-white md:size-12 md:rounded-[9px] md:text-[25px]">
-            r↗
-          </span>
-          <span>
-            Good things.
-            <br />
-            <strong className="font-medium text-[#a5a298]">
-              On autopilot.
-            </strong>
-          </span>
-        </div>
-        <div className="flex items-center py-[26px] md:pb-8 md:pt-10">
-          {items.map((item, i) => (
-            <div className="contents" key={item[1]}>
-              {i > 0 && (
-                <div className="motion-flow relative h-px w-3 shrink-0 bg-[#ded7c9] md:w-[35px]">
-                  <i className="absolute -top-0.5 size-[5px] rounded-full bg-[#f78360]" />
-                </div>
-              )}
-              <div
-                className={`flex-1 rounded-[5px] border bg-white p-[7px] md:rounded-[7px] md:px-[13px] md:py-4 ${i === 1 ? "border-[#f1bcae] shadow-[0_4px_12px_#e87d4910]" : "border-[#e7e3dc]"}`}
-              >
-                <span
-                  className={`mb-[11px] grid size-[22px] place-items-center rounded-md bg-[#f7f5f0] text-sm md:mb-[17px] md:size-[26px] md:text-[17px] ${i === 1 ? "bg-[#fff0e9] text-[#ec6c47]" : ""}`}
-                >
-                  {item[0]}
-                </span>
-                <strong className="block text-[8px] font-medium leading-[1.4] tracking-[-.03em] md:text-[11px]">
-                  {item[1]}
-                </strong>
-                <small className="mt-[5px] block text-[6px] leading-[1.4] text-[#9b988f] md:text-[8px]">
-                  {item[2]}
-                </small>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-between gap-2 border-t border-[#efede6] pt-[13px] text-[5px] text-[#9b988f] md:pt-[18px] md:text-[7px]">
-          <span>
-            <i className="mr-1 inline-block size-1 rounded-full bg-[#72a786]" />
-            Everything in its right place.
-          </span>
-          <span>relay / workflow studio</span>
-        </div>
-      </div>
-      <span
-        className={`${handwriting} absolute bottom-[15px] right-[17px] rotate-[-5deg] text-[19px] text-[#c06443] md:bottom-[22px] md:right-9 md:text-[25px]`}
+
+      <a
+        href="/ycc.png"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open the full-size screenshot of Yacht Crew Center"
+        className="relative mt-5 block w-[90%] rotate-[2deg] overflow-hidden rounded-[9px] border border-white/20 bg-[#03121c] shadow-[0_30px_65px_#134b6533] transition duration-700 hover:rotate-0 focus-visible:rotate-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1478a8] md:mt-6 md:w-[76%] md:max-w-[760px] md:rounded-[13px] md:[transform:perspective(1200px)_rotateY(5deg)_rotateX(3deg)_rotateZ(2deg)] md:hover:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)] md:focus-visible:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)]"
       >
-        more time for the good stuff.
+        <Image
+          src="/ycc.png"
+          alt="Yacht Crew Center homepage with a yacht at sea and crew resources"
+          width={3456}
+          height={2234}
+          sizes="(min-width: 1280px) 760px, (min-width: 768px) 76vw, 90vw"
+          quality={90}
+          className="block h-auto w-full"
+        />
+      </a>
+
+      <span className="absolute bottom-[12px] right-[18px] rotate-[-4deg] font-[family-name:var(--font-hand)] text-[20px] text-[#1478a8] md:bottom-[20px] md:right-8 md:text-[25px]">
+        built for life on board.
       </span>
     </div>
   );
@@ -219,9 +184,7 @@ export default function Work() {
     >
       <Reveal className="mb-7 flex flex-col items-start justify-between gap-[23px] md:mb-12 md:flex-row md:items-end md:gap-10">
         <div>
-          <p className={`${eyebrow} mb-5 md:mb-6`}>
-            SELECTED WORK
-          </p>
+          <p className={`${eyebrow} mb-5 md:mb-6`}>SELECTED WORK</p>
           <h2 id="work-title" className={sectionTitle}>
             A few things
             <br />
@@ -283,19 +246,21 @@ export default function Work() {
           />
           <ProjectDetails label="Inside the product">
             <p>
-              Tell Picky what you’re looking for and it gathers live listings
-              in one place. It compares price, condition, and seller feedback,
-              then recommends the strongest option with a clear reason and an
+              Tell Picky what you’re looking for and it gathers live listings in
+              one place. It compares price, condition, and seller feedback, then
+              recommends the strongest option with a clear reason and an
               alternative worth considering.
             </p>
             <p>
               <strong className="block font-medium text-[#202124]">
                 What I built
               </strong>
-              I built the search-to-recommendation flow: collecting product
-              listings and seller reviews from Jiji, showing the options as
-              they come in, comparing them with AI, and turning the analysis
-              into a reasoned pick and a backup choice.
+              I built picky end to end, the search-to-recommendation flow:
+              collecting product listings and seller reviews from Jiji, showing
+              the options as they come in, comparing them with AI, and turning
+              the analysis into a reasoned pick and a backup choice. Jiji is the
+              first live marketplace; the interface already makes room for
+              Jumia, Amazon, and more as future sources.
             </p>
             <span className={commonDetails}>AI SHOPPING ASSISTANT</span>
           </ProjectDetails>
@@ -303,29 +268,30 @@ export default function Work() {
       </Reveal>
       <Reveal className="mt-10 md:mt-[72px]">
         <article>
-          <RelayMockup />
+          <YachtCrewCenterMockup />
           <ProjectInfo
-            name="Relay"
+            name="Yacht Crew Center"
             index="03"
-            description="Less moving things around. More moving forward."
-            tags={["Automation", "Systems"]}
+            description="A connected home for yacht crews and vessel operations."
+            tags={["Yachting", "Platform", "AI tools"]}
           />
-          <ProjectDetails>
+          <ProjectDetails label="Inside the product">
             <p>
-              A study of a visual workflow builder that makes automated work
-              understandable. Every step shows what goes in, what happens, and
-              what comes next.
+              Yacht Crew Center brings crew resources, marine suppliers, and
+              local service providers into one place. Crews can find the support
+              they need for their department while captains have a clearer way
+              to coordinate the work of running a vessel.
             </p>
             <p>
               <strong className="block font-medium text-[#202124]">
-                The engineering question
+                What I built
               </strong>
-              How do you make retries, approvals, and failure states as
-              understandable as the happy path?
+              I contributed across the platform: the frontend experience for
+              crew and departments, backend services that connect its tools and
+              resources, and AI workflows that help make day-to-day vessel
+              operations easier to manage.
             </p>
-            <span className={commonDetails}>
-              DESIGN STUDY · NOT A SHIPPED CLIENT PROJECT
-            </span>
+            <span className={commonDetails}>YACHT OPERATIONS PLATFORM</span>
           </ProjectDetails>
         </article>
       </Reveal>
