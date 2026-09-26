@@ -1,4 +1,5 @@
 import ProjectEngineering from "./ProjectEngineering";
+import ProjectDemoModal from "./ProjectDemoModal";
 import ProjectFooter from "./ProjectFooter";
 import ProjectIntro from "./ProjectIntro";
 import Header from "@/components/portfolio/Header";
@@ -27,6 +28,7 @@ export default function ProjectPage({ project }: { project: ProjectData }) {
         <TechnologyGrid technologies={project.technologies} />
       </main>
       <ProjectFooter project={project} />
+      {project.action.kind === "demo" && <ProjectDemoModal project={project} />}
     </div>
   );
 }

@@ -8,17 +8,32 @@ export type ProjectTechnology = {
   icon: string;
 };
 
+export type ProjectAction =
+  | { kind: "external"; href: string; label: string; footerLabel: string }
+  | { kind: "demo"; label: string; videoSrc?: string };
+
+export type ProjectGallerySlide = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  title: string;
+  description: string;
+};
+
 export type ProjectData = {
   name: string;
   headline: string;
   summary: string;
-  liveUrl: string;
+  status?: string;
+  action: ProjectAction;
   image: {
     src: string;
     alt: string;
     width: number;
     height: number;
   };
+  gallery?: ProjectGallerySlide[];
   colors: {
     surface: string;
     accent: string;

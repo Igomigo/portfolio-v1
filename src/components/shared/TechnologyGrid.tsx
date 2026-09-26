@@ -22,11 +22,11 @@ export default function TechnologyGrid({
             A selected look at the technologies behind the experience.
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-3">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-3">
           {technologies.map((technology) => (
             <div
               key={technology.name}
-              className="group flex min-h-[152px] flex-col items-center justify-center rounded-[8px] border border-[#e8eaf0] bg-white px-3 py-6 transition duration-300 hover:-translate-y-1 hover:border-[#cbd5ff] hover:shadow-[0_16px_35px_#263b7510] md:min-h-[185px]"
+              className="group flex min-h-[152px] w-[calc(50%-4px)] flex-col items-center justify-center rounded-[8px] border border-[#e8eaf0] bg-white px-3 py-6 transition duration-300 hover:-translate-y-1 hover:border-[#cbd5ff] hover:shadow-[0_16px_35px_#263b7510] md:min-h-[185px] md:w-[calc(25%-9px)]"
             >
               <div className="mb-5 grid size-[52px] place-items-center md:size-[60px]">
                 <Image

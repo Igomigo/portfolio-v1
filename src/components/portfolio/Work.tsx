@@ -88,7 +88,7 @@ function TailrMockup() {
         className="relative mt-5 block w-[90%] rotate-[-3deg] overflow-hidden rounded-[9px] border border-white/15 bg-black shadow-[0_30px_65px_#34251938] transition duration-700 hover:rotate-0 focus-visible:rotate-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#a57228] md:mt-6 md:w-[76%] md:max-w-[760px] md:rounded-[13px] md:[transform:perspective(1200px)_rotateY(-5deg)_rotateX(3deg)_rotateZ(-2deg)] md:hover:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)] md:focus-visible:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)]"
       >
         <Image
-          src="/tailr-app.png"
+          src="/tailr/tailr-app.png"
           alt="Tailr's dark resume builder interface with a chat prompt and resume template gallery"
           width={3456}
           height={2234}
@@ -114,26 +114,24 @@ function PickyMockup() {
         02 — AI SHOPPING ASSISTANT
       </span>
 
-      <a
-        href="/picky.png"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open the full-size screenshot of Picky's shopping comparison"
+      <Link
+        href="/projects/picky"
+        aria-label="Explore the Picky project"
         className="relative mt-5 block w-[90%] rotate-[-3deg] overflow-hidden rounded-[9px] border border-white/80 bg-white shadow-[0_30px_65px_#3d2b7d26] transition duration-700 hover:rotate-0 focus-visible:rotate-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4f46e5] md:mt-6 md:w-[76%] md:max-w-[760px] md:rounded-[13px] md:[transform:perspective(1200px)_rotateY(-5deg)_rotateX(3deg)_rotateZ(-2deg)] md:hover:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)] md:focus-visible:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)]"
       >
         <Image
-          src="/picky.png"
-          alt="Picky comparing phone listings from an online marketplace"
+          src="/picky/picky.png"
+          alt="Picky showing live phone listings from Jiji"
           width={3456}
-          height={2234}
+          height={2162}
           sizes="(min-width: 1280px) 760px, (min-width: 768px) 76vw, 90vw"
           quality={90}
           className="block h-auto w-full"
         />
-      </a>
+      </Link>
 
       <span className="absolute bottom-[12px] right-[18px] rotate-[-4deg] font-[family-name:var(--font-hand)] text-[20px] text-[#4f46e5] md:bottom-[20px] md:right-8 md:text-[25px]">
-        the right pick, without the guesswork.
+        pick with confidence.
       </span>
     </div>
   );
@@ -149,14 +147,14 @@ function YachtCrewCenterMockup() {
       </span>
 
       <a
-        href="/ycc.png"
+        href="/ycc/ycc.png"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Open the full-size screenshot of Yacht Crew Center"
         className="relative mt-5 block w-[90%] rotate-[2deg] overflow-hidden rounded-[9px] border border-white/20 bg-[#03121c] shadow-[0_30px_65px_#134b6533] transition duration-700 hover:rotate-0 focus-visible:rotate-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1478a8] md:mt-6 md:w-[76%] md:max-w-[760px] md:rounded-[13px] md:[transform:perspective(1200px)_rotateY(5deg)_rotateX(3deg)_rotateZ(2deg)] md:hover:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)] md:focus-visible:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)]"
       >
         <Image
-          src="/ycc.png"
+          src="/ycc/ycc.png"
           alt="Yacht Crew Center homepage with a yacht at sea and crew resources"
           width={3456}
           height={2234}
@@ -241,7 +239,7 @@ export default function Work() {
             name="Picky"
             index="02"
             description="An AI shopping assistant that finds the one worth buying."
-            tags={["AI product", "Shopping", "Full-stack"]}
+            tags={["AI product", "Shopping", "In the lab"]}
           />
           <ProjectDetails label="Inside the product">
             <p>
@@ -254,7 +252,7 @@ export default function Work() {
               <strong className="block font-medium text-[#202124]">
                 What I built
               </strong>
-              I built picky end to end, the search-to-recommendation flow:
+              I built Picky end to end, the search-to-recommendation flow:
               collecting product listings and seller reviews from Jiji, showing
               the options as they come in, comparing them with AI, and turning
               the analysis into a reasoned pick and a backup choice. Jiji is the
