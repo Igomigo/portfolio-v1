@@ -95,7 +95,7 @@ const project: ProjectData = {
     { name: "Node.js", icon: "/tech/nodejs.svg" },
     { name: "Express", icon: "/tech/express.svg" },
     { name: "MongoDB", icon: "/tech/mongodb.svg" },
-    { name: "OpenAI / ChatGPT", icon: "/tech/openai.svg" },
+    { name: "ChatGPT", icon: "/tech/openai.svg" },
     { name: "Cloudinary", icon: "/tech/cloudinary.svg" },
     { name: "Gotenberg", icon: "/tech/gotenberg.png" },
   ],

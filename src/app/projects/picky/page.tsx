@@ -21,6 +21,48 @@ const project: ProjectData = {
     width: 3456,
     height: 2162,
   },
+  gallery: [
+    {
+      src: "/picky/picky.png",
+      alt: "Picky displaying phone listings alongside its search activity",
+      width: 3456,
+      height: 2162,
+      title: "Search in motion",
+      description: "Watch listings arrive as Picky works through the options.",
+    },
+    {
+      src: "/picky/picky-comparison.png",
+      alt: "Picky comparing phone listings with prices, reviews, and reliability scores",
+      width: 3456,
+      height: 2144,
+      title: "Compare the options",
+      description: "See how price, condition, and seller feedback stack up.",
+    },
+    {
+      src: "/picky/picky-recommendation.png",
+      alt: "Picky recommending a phone with reasons and an alternative",
+      width: 3456,
+      height: 2148,
+      title: "A reasoned pick",
+      description: "Get a recommendation, the reasons behind it, and an alternative.",
+    },
+    {
+      src: "/picky/picky-product.png",
+      alt: "Picky showing product photos, specifications, and seller reviews",
+      width: 3444,
+      height: 2142,
+      title: "Look closer",
+      description: "Inspect the listing, its specifications, and seller reviews.",
+    },
+    {
+      src: "/picky/picky-landing.png",
+      alt: "Picky's search page with Jiji selected and other marketplaces marked as coming soon",
+      width: 3422,
+      height: 2126,
+      title: "Start with a search",
+      description: "Describe what you want and choose where to look.",
+    },
+  ],
   colors: {
     surface:
       "radial-gradient(ellipse at 50% 25%, #fffdfb 0%, #f2efff 58%, #e6e1fb 100%)",
@@ -84,6 +126,7 @@ const project: ProjectData = {
     { name: "Node.js", icon: "/tech/nodejs.svg" },
     { name: "Express", icon: "/tech/express.svg" },
     { name: "n8n", icon: "/tech/n8n.svg" },
+    { name: "ChatGPT", icon: "/tech/openai.svg" },
   ],
   closingLine: "Good choices deserve good reasons.",
 };
