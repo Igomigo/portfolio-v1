@@ -92,6 +92,7 @@ const project: ProjectData = {
     { name: "TypeScript", icon: "/tech/typescript.svg" },
     { name: "Next.js", icon: "/tech/nextjs.svg" },
     { name: "React", icon: "/tech/react.svg" },
+    { name: "Tailwind CSS", icon: "/tech/tailwindcss.svg" },
     { name: "Node.js", icon: "/tech/nodejs.svg" },
     { name: "Express", icon: "/tech/express.svg" },
     { name: "MongoDB", icon: "/tech/mongodb.svg" },

@@ -23,7 +23,7 @@ export default function ProjectVisual({ project }: { project: ProjectData }) {
         className="relative overflow-hidden rounded-[12px] px-[18px] pb-12 pt-8 md:rounded-[20px] md:px-12 md:pb-[95px] md:pt-[80px] xl:px-[85px]"
         style={{ background: project.colors.surface }}
       >
-        {project.gallery && project.gallery.length > 1 ? (
+        {project.gallery && project.gallery.length > 0 ? (
           <ProjectGallery slides={project.gallery} name={project.name} />
         ) : project.action.kind === "demo" ? (
           <ProjectDemoTrigger
@@ -43,7 +43,7 @@ export default function ProjectVisual({ project }: { project: ProjectData }) {
             {image}
           </a>
         )}
-        {!project.gallery || project.gallery.length < 2 ? <span
+        {!project.gallery?.length ? <span
           className="absolute bottom-3 right-5 rotate-[-4deg] font-[family-name:var(--font-hand)] text-[21px] md:bottom-7 md:right-10 md:text-[29px]"
           style={{ color: project.colors.accent }}
         >

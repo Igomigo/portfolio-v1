@@ -78,11 +78,11 @@ export default function ProjectImageViewer({ name, slides, index, onChange, onCl
           />
         </div>
 
-        <div className="flex shrink-0 items-center justify-between gap-3 px-4 py-3 md:px-8 md:py-5">
-          <button type="button" onClick={() => change((index ?? 0) - 1)} disabled={index === 0} aria-label="Previous full-screen image" className="grid size-11 cursor-pointer place-items-center rounded-full border border-white/25 text-[21px] transition hover:bg-white/10 disabled:cursor-default disabled:opacity-30">←</button>
+        <div className={`flex shrink-0 items-center gap-3 px-4 py-3 md:px-8 md:py-5 ${slides.length > 1 ? "justify-between" : "justify-center"}`}>
+          {slides.length > 1 && <button type="button" onClick={() => change((index ?? 0) - 1)} disabled={index === 0} aria-label="Previous full-screen image" className="grid size-11 cursor-pointer place-items-center rounded-full border border-white/25 text-[21px] transition hover:bg-white/10 disabled:cursor-default disabled:opacity-30">←</button>}
           <p className="hidden max-w-[65ch] truncate text-center text-[12px] text-white/60 sm:block">{current.description}</p>
           <a href={current.src} target="_blank" rel="noopener noreferrer" className="text-center text-[11px] text-white/70 underline decoration-white/30 underline-offset-4 transition hover:text-white sm:hidden">Open original ↗</a>
-          <button type="button" onClick={() => change((index ?? 0) + 1)} disabled={index === slides.length - 1} aria-label="Next full-screen image" className="grid size-11 cursor-pointer place-items-center rounded-full border border-white/25 text-[21px] transition hover:bg-white/10 disabled:cursor-default disabled:opacity-30">→</button>
+          {slides.length > 1 && <button type="button" onClick={() => change((index ?? 0) + 1)} disabled={index === slides.length - 1} aria-label="Next full-screen image" className="grid size-11 cursor-pointer place-items-center rounded-full border border-white/25 text-[21px] transition hover:bg-white/10 disabled:cursor-default disabled:opacity-30">→</button>}
         </div>
       </div>
     </dialog>

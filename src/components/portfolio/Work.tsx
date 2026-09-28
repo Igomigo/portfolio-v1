@@ -146,23 +146,21 @@ function YachtCrewCenterMockup() {
         03 — YACHT OPERATIONS
       </span>
 
-      <a
-        href="/ycc/ycc.png"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open the full-size screenshot of Yacht Crew Center"
+      <Link
+        href="/projects/yacht-crew-center"
+        aria-label="Explore the Yacht Crew Center project"
         className="relative mt-5 block w-[90%] rotate-[2deg] overflow-hidden rounded-[9px] border border-white/20 bg-[#03121c] shadow-[0_30px_65px_#134b6533] transition duration-700 hover:rotate-0 focus-visible:rotate-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1478a8] md:mt-6 md:w-[76%] md:max-w-[760px] md:rounded-[13px] md:[transform:perspective(1200px)_rotateY(5deg)_rotateX(3deg)_rotateZ(2deg)] md:hover:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)] md:focus-visible:[transform:perspective(1200px)_rotateY(0)_rotateX(0)_rotateZ(0)]"
       >
         <Image
           src="/ycc/ycc.png"
           alt="Yacht Crew Center homepage with a yacht at sea and crew resources"
-          width={3456}
-          height={2234}
+          width={3450}
+          height={2160}
           sizes="(min-width: 1280px) 760px, (min-width: 768px) 76vw, 90vw"
           quality={90}
           className="block h-auto w-full"
         />
-      </a>
+      </Link>
 
       <span className="absolute bottom-[12px] right-[18px] rotate-[-4deg] font-[family-name:var(--font-hand)] text-[20px] text-[#1478a8] md:bottom-[20px] md:right-8 md:text-[25px]">
         built for life on board.

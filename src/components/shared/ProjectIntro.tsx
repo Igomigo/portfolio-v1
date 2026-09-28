@@ -2,6 +2,7 @@ import ProjectActionButton from "./ProjectActionButton";
 import type { ProjectData } from "./project-types";
 
 export default function ProjectIntro({ project }: { project: ProjectData }) {
+  const longName = project.name.length > 15;
   return (
     <section className="mx-auto max-w-[1392px] px-[22px] pb-12 pt-[82px] md:px-9 md:pb-[82px] md:pt-[128px] xl:px-14">
       <div className="grid items-end gap-9 lg:grid-cols-[1.35fr_.65fr] lg:gap-20">
@@ -12,7 +13,7 @@ export default function ProjectIntro({ project }: { project: ProjectData }) {
               {project.status}
             </p>
           )}
-          <h1 className="m-0 text-[clamp(74px,15vw,176px)] font-medium leading-[.86] tracking-[-.085em] text-[#202124]">
+          <h1 className={`m-0 font-medium tracking-[-.085em] text-[#202124] ${longName ? "text-[clamp(54px,8.8vw,120px)] leading-[.92]" : "text-[clamp(74px,15vw,176px)] leading-[.86]"}`}>
             {project.name}
             <span style={{ color: project.colors.accent }}>.</span>
           </h1>
