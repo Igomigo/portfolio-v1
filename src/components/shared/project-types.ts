@@ -10,7 +10,7 @@ export type ProjectTechnology = {
 
 export type ProjectAction =
   | { kind: "external"; href: string; label: string; footerLabel: string }
-  | { kind: "demo"; label: string; videoSrc?: string };
+  | { kind: "demo"; label: string; videoSrc?: string; mobileVideoSrc?: string; posterSrc?: string };
 
 export type ProjectGallerySlide = {
   src: string;

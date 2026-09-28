@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
+import ProjectImageViewer from "./ProjectImageViewer";
 import type { ProjectGallerySlide } from "./project-types";
 
 export default function ProjectGallery({ slides, name }: { slides: ProjectGallerySlide[]; name: string }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [viewerIndex, setViewerIndex] = useState<number | null>(null);
 
   function goTo(index: number) {
     const track = trackRef.current;
@@ -31,9 +33,19 @@ export default function ProjectGallery({ slides, name }: { slides: ProjectGaller
         }}
         className="flex snap-x snap-mandatory overflow-x-auto overscroll-x-contain rounded-[7px] border border-white/20 bg-black shadow-[0_32px_80px_#231a1433] outline-offset-4 focus-visible:outline-2 focus-visible:outline-[#2458ed] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:rounded-[12px]"
       >
-        {slides.map((slide) => (
+        {slides.map((slide, index) => (
           <div key={slide.src} className="w-full shrink-0 snap-center">
-            <Image src={slide.src} alt={slide.alt} width={slide.width} height={slide.height} sizes="(min-width: 1280px) 1120px, (min-width: 768px) 85vw, 90vw" quality={90} className="block h-auto w-full" />
+            <button
+              type="button"
+              aria-label={`View ${slide.title} full screen`}
+              onClick={() => setViewerIndex(index)}
+              className="group relative block w-full cursor-zoom-in p-0"
+            >
+              <Image src={slide.src} alt={slide.alt} width={slide.width} height={slide.height} sizes="(min-width: 1280px) 1120px, (min-width: 768px) 85vw, 90vw" quality={90} className="block h-auto w-full transition duration-500 group-hover:scale-[1.01]" />
+              <span className="absolute bottom-3 right-3 rounded-full bg-white/95 px-3 py-2 text-[11px] font-medium text-[#26231f] shadow-lg backdrop-blur-sm transition group-hover:bg-white md:bottom-5 md:right-5 md:px-4 md:py-2.5 md:text-[13px]">
+                View full screen ↗
+              </span>
+            </button>
           </div>
         ))}
       </div>
@@ -54,6 +66,16 @@ export default function ProjectGallery({ slides, name }: { slides: ProjectGaller
         ))}
       </div>
       <p className="mt-3 text-[11px] text-[#786f65] md:hidden">Swipe to explore more screens</p>
+      <ProjectImageViewer
+        name={name}
+        slides={slides}
+        index={viewerIndex}
+        onChange={setViewerIndex}
+        onClose={() => {
+          if (viewerIndex !== null) goTo(viewerIndex);
+          setViewerIndex(null);
+        }}
+      />
     </div>
   );
 }

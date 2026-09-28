@@ -8,6 +8,8 @@ export default function ProjectDemoModal({ project }: { project: ProjectData }) 
   const dialog = useRef<HTMLDialogElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const videoSrc = project.action.kind === "demo" ? project.action.videoSrc : undefined;
+  const mobileVideoSrc = project.action.kind === "demo" ? project.action.mobileVideoSrc : undefined;
+  const posterSrc = project.action.kind === "demo" ? project.action.posterSrc : undefined;
 
   return (
     <dialog
@@ -18,14 +20,14 @@ export default function ProjectDemoModal({ project }: { project: ProjectData }) 
         if (event.target === dialog.current) dialog.current?.close();
       }}
       aria-labelledby="project-demo-title"
-      className="m-auto max-h-[calc(100dvh-32px)] w-[calc(100vw-32px)] max-w-[1080px] overflow-y-auto rounded-[16px] border border-white/70 bg-[#f8f6ff] p-0 text-[#202124] shadow-[0_32px_100px_#14122555] backdrop:bg-[#171426b3] backdrop:backdrop-blur-[6px]"
+      className="m-auto max-h-[calc(100dvh-24px)] w-[calc(100vw-24px)] max-w-[1080px] overflow-y-auto rounded-[16px] border border-white/70 bg-[#f8f6ff] p-0 text-[#202124] shadow-[0_32px_100px_#14122555] backdrop:bg-[#171426b3] backdrop:backdrop-blur-[6px] md:max-h-[calc(100dvh-32px)] md:w-[calc(100vw-32px)]"
     >
-      <div className="relative p-5 md:p-9">
+      <div className="relative p-4 md:p-9">
         <button
           type="button"
           onClick={() => dialog.current?.close()}
           aria-label="Close demo"
-          className="absolute right-5 top-5 z-10 grid size-10 cursor-pointer place-items-center rounded-full border border-[#d9d6e5] bg-white text-xl leading-none transition hover:bg-[#eeebfa] md:right-9 md:top-9"
+          className="absolute right-4 top-4 z-10 grid size-10 cursor-pointer place-items-center rounded-full border border-[#d9d6e5] bg-white text-xl leading-none transition hover:bg-[#eeebfa] md:right-9 md:top-9"
         >
           ×
         </button>
@@ -42,17 +44,21 @@ export default function ProjectDemoModal({ project }: { project: ProjectData }) 
             </p>
           )}
         </div>
-        <div className="mt-7 overflow-hidden rounded-[10px] border border-[#e3dff0] bg-white shadow-[0_24px_55px_#2820521f] md:mt-9">
+        <div className="mt-6 overflow-hidden rounded-[10px] border border-[#e3dff0] bg-white shadow-[0_24px_55px_#2820521f] md:mt-9">
           {videoSrc ? (
             <video
               ref={video}
+              aria-label={`${project.name} product demo video`}
               controls
+              loop
+              muted
               playsInline
-              preload="metadata"
-              poster={project.image.src}
-              className="block aspect-video w-full bg-black object-contain"
+              preload="none"
+              poster={posterSrc ?? project.image.src}
+              className="block aspect-video max-h-[65dvh] w-full bg-black object-contain"
             >
-              <source src={videoSrc} />
+              {mobileVideoSrc && <source src={mobileVideoSrc} type="video/mp4" media="(max-width: 767px)" />}
+              <source src={videoSrc} type="video/mp4" />
               Your browser does not support this video.
             </video>
           ) : (

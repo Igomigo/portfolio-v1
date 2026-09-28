@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { openProjectDemo } from "./openProjectDemo";
 
 export default function ProjectDemoTrigger({
   children,
@@ -16,9 +17,7 @@ export default function ProjectDemoTrigger({
       type="button"
       className={className}
       aria-label={ariaLabel}
-      onClick={() =>
-        (document.getElementById("project-demo") as HTMLDialogElement | null)?.showModal()
-      }
+      onClick={openProjectDemo}
     >
       {children}
     </button>

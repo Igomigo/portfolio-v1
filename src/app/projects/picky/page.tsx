@@ -14,7 +14,13 @@ const project: ProjectData = {
   summary:
     "Tell Picky what you’re looking for. It brings listings together, weighs price, condition, and seller feedback, then explains its strongest pick and a worthwhile alternative.",
   status: "In the lab · Work in progress",
-  action: { kind: "demo", label: "See demo" },
+  action: {
+    kind: "demo",
+    label: "See demo",
+    videoSrc: "/picky/picky-demo.mp4",
+    mobileVideoSrc: "/picky/picky-demo-mobile.mp4",
+    posterSrc: "/picky/picky-demo-poster.jpg",
+  },
   image: {
     src: "/picky/picky.png",
     alt: "Picky showing live phone listings from Jiji as the search completes",
