@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ProjectActionButton from "./ProjectActionButton";
 import type { ProjectData } from "./project-types";
+import SocialLinks from "./SocialLinks";
 
 export default function ProjectFooter({ project }: { project: ProjectData }) {
   return (
@@ -13,6 +14,7 @@ export default function ProjectFooter({ project }: { project: ProjectData }) {
           {project.closingLine}
         </h2>
         <ProjectActionButton action={project.action} footer />
+        <SocialLinks className="mt-9" />
         <div className="mt-[105px] flex items-center justify-between gap-5 border-t border-[#dfe3ee] py-6 text-[10px] text-[#8b90a0] md:mt-[145px]">
           <Link href="/" className="text-[29px] font-semibold leading-none tracking-[-.09em] text-[#202124]">
             fi<span className="text-[#2458ed]">.</span>

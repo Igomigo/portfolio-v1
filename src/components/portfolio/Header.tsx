@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Arrow } from "./shared";
 
-export default function Header({ projectName }: { projectName?: string }) {
+export default function Header({ projectName, backHref = "/projects", backLabel = "All projects" }: { projectName?: string; backHref?: string; backLabel?: string }) {
   const [progress, setProgress] = useState(0);
   useEffect(() => {
     let frame = 0;
@@ -42,11 +42,11 @@ export default function Header({ projectName }: { projectName?: string }) {
             Selected work / {projectName}
           </span>
           <Link
-            href="/"
+            href={backHref}
             className="inline-flex min-h-11 items-center gap-2 text-[11px] text-[#383b43] transition-colors hover:text-[#2458ed] md:text-xs"
           >
             <Arrow className="size-4 rotate-180" />
-            Back home
+            {backLabel}
           </Link>
         </>
       ) : (

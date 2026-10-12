@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import Button from "@/components/ui/Button";
+import { Arrow } from "./shared";
 
 import {
   Reveal,
@@ -196,7 +198,7 @@ export default function Work() {
           <p className="m-0 text-[8px] leading-[1.7] text-[#8a8b92] md:text-[10px]">
             A closer look at the work.
             <br />
-            More projects are on their way.
+            Independent builds and team contributions.
           </p>
         </div>
       </Reveal>
@@ -289,6 +291,10 @@ export default function Work() {
             <span className={commonDetails}>YACHT OPERATIONS PLATFORM</span>
           </ProjectDetails>
         </article>
+      </Reveal>
+      <Reveal className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-[#e6e6e8] pt-8 md:mt-16 md:flex-row md:items-center md:pt-10">
+        <p className="max-w-[360px] text-[13px] leading-[1.8] text-[#737680]">There’s more behind the work. Explore the full collection, from independent ideas to platforms built with a team.</p>
+        <Button href="/projects" icon={<Arrow className="size-4" />}>View all projects</Button>
       </Reveal>
     </section>
   );

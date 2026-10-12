@@ -6,6 +6,7 @@ import Header from "@/components/portfolio/Header";
 import ProjectSteps from "./ProjectSteps";
 import ProjectStory from "./ProjectStory";
 import ProjectVisual from "./ProjectVisual";
+import ProjectNavigation from "./ProjectNavigation";
 import TechnologyGrid from "./TechnologyGrid";
 import type { ProjectData } from "./project-types";
 
@@ -27,6 +28,7 @@ export default function ProjectPage({ project }: { project: ProjectData }) {
         <ProjectEngineering engineering={project.engineering} />
         <TechnologyGrid technologies={project.technologies} />
       </main>
+      <ProjectNavigation name={project.name} />
       <ProjectFooter project={project} />
       {project.action.kind === "demo" && <ProjectDemoModal project={project} />}
     </div>

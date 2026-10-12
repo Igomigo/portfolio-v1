@@ -41,7 +41,7 @@ export default function ProjectGallery({ slides, name }: { slides: ProjectGaller
               onClick={() => setViewerIndex(index)}
               className="group relative block w-full cursor-zoom-in p-0"
             >
-              <Image src={slide.src} alt={slide.alt} width={slide.width} height={slide.height} sizes="(min-width: 1280px) 1120px, (min-width: 768px) 85vw, 90vw" quality={90} className="block h-auto w-full transition duration-500 group-hover:scale-[1.01]" />
+              <Image src={slide.src} alt={slide.alt} width={slide.width} height={slide.height} loading={index === 0 ? "eager" : "lazy"} sizes="(min-width: 1280px) 1120px, (min-width: 768px) 85vw, 90vw" quality={90} className="block h-auto w-full transition duration-500 group-hover:scale-[1.01]" />
             </button>
           </div>
         ))}

@@ -2,18 +2,19 @@ import ProjectActionButton from "./ProjectActionButton";
 import type { ProjectData } from "./project-types";
 
 export default function ProjectIntro({ project }: { project: ProjectData }) {
-  const longName = project.name.length > 15;
+  const longName = project.name.length > 10;
+  const mediumName = project.name.length > 7;
   return (
     <section className="mx-auto max-w-[1392px] px-[22px] pb-12 pt-[82px] md:px-9 md:pb-[82px] md:pt-[128px] xl:px-14">
       <div className="grid items-end gap-9 lg:grid-cols-[1.35fr_.65fr] lg:gap-20">
-        <div>
+        <div className="min-w-0">
           {project.status && (
             <p className="mb-7 font-mono text-[9px] uppercase tracking-[.16em] text-[#5a50c9] md:mb-9">
               <span className="mr-2 inline-block size-1.5 rounded-full bg-[#7569e8] align-middle" />
               {project.status}
             </p>
           )}
-          <h1 className={`m-0 font-medium tracking-[-.085em] text-[#202124] ${longName ? "text-[clamp(54px,8.8vw,120px)] leading-[.92]" : "text-[clamp(74px,15vw,176px)] leading-[.86]"}`}>
+          <h1 className={`m-0 font-medium tracking-[-.085em] text-[#202124] ${longName ? "text-[clamp(48px,8.8vw,120px)] leading-[.92]" : mediumName ? "text-[clamp(58px,12vw,150px)] leading-[.9]" : "text-[clamp(74px,15vw,176px)] leading-[.86]"}`}>
             {project.name}
             <span style={{ color: project.colors.accent }}>.</span>
           </h1>
@@ -21,7 +22,7 @@ export default function ProjectIntro({ project }: { project: ProjectData }) {
             {project.headline}
           </p>
         </div>
-        <div className="max-w-[440px] pb-1">
+        <div className="min-w-0 max-w-[440px] pb-1">
           <p className="mb-7 text-[14px] leading-[1.85] text-[#727680] md:text-[16px]">
             {project.summary}
           </p>

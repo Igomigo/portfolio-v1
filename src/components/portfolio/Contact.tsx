@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
+import SocialLinks from "@/components/shared/SocialLinks";
 import { identity } from "@/lib/data";
 import {
   Arrow,
@@ -104,6 +105,7 @@ export default function Contact() {
                 : ""}
           </span>
         </div>
+        <SocialLinks className="pb-8 md:pb-10" />
         <footer className="flex flex-wrap items-center gap-4 border-t border-[#dfe3ee] py-6 text-[8px] text-[#868da0] md:gap-[30px] md:text-[9px]">
           <a
             href="#top"
